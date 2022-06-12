@@ -17,6 +17,7 @@ mongoose.connect("mongodb://localhost:27017/Awd",{
 })
 app.use(express.json())
 app.use(cors())
+const userRouter = require('./routes/user-routes')
 const musicRouter = require('./routes/music')
 const albumRouter = require('./routes/album')
 const podcastRouter = require('./routes/podcast')
@@ -30,6 +31,6 @@ app.use('/podcast',podcastRouter)
 app.use('/episode',episodeRouter)
 app.use('/audiobook',audioBookRouter)
 app.use('/chapter',chapterRouter)
-
+app.use('/user',userRouter);
 app.listen(5000,()=>
 console.log("On port 5000"))

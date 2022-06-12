@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+var crypto = require('crypto'); 
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
@@ -14,9 +14,10 @@ const userSchema = new Schema({
     },
     password:{
         type:String,
-        required:true,
-        minlength:6
-    }
+        required:true
+    },
+
 })
+
 module.exports = mongoose.model("User",userSchema);
 //Uses
