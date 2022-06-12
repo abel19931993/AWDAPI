@@ -82,7 +82,7 @@ router.put("/:album_id",async(req,res)=>{
   },{new:true})
   res.statusCode = "200"
   res.setHeader('Content-Type','application/json')
-  res.json(album)
+  res.json(album);
   }catch(err){
      res.send('Error '+err)
   }
