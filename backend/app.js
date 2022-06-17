@@ -1,7 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 var cors = require('cors')
-
+const cookieParser = require('cookie-parser')
 
 const app = express()
 mongoose.connect("mongodb://localhost:27017/Awd",{
@@ -15,8 +15,9 @@ mongoose.connect("mongodb://localhost:27017/Awd",{
         console.log("successfully connected")
     }
 })
+app.use(cookieParser())
 app.use(express.json())
-app.use(cors())
+app.use(cors({credentials:true,origin:"http://localhost:3000"}))
 const userRouter = require('./routes/user-routes')
 const musicRouter = require('./routes/music')
 const albumRouter = require('./routes/album')

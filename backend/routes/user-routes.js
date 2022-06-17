@@ -4,12 +4,16 @@ const {
     login,
     verifyToken,
     getUser,
+    refreshToken,
+    logout,
 } = require('../controlles/user_controller');
 const router = express.Router();
 
 router.post('/signup',signup);
 router.post('/login',login);
 router.get('/token',verifyToken,getUser);
+router.get("/refresh", refreshToken, verifyToken, getUser);
+router.post("/logout", verifyToken, logout);
 router.get("/", async (req, res) => {
     try {
       res.send("HELLO");
